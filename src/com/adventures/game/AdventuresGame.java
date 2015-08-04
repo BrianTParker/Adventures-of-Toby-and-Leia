@@ -16,7 +16,7 @@ public class AdventuresGame implements ApplicationListener {
 	public void create() {
 		batch = new SpriteBatch();
 		toby = new Texture(Gdx.files.internal("assets/toby_right.png"));
-		leia = new Texture(Gdx.files.internal("assets/leia.png"));
+		leia = new Texture(Gdx.files.internal("assets/leia_right.png"));
 	}
 
 	@Override
@@ -38,8 +38,8 @@ public class AdventuresGame implements ApplicationListener {
 		
 		//all drawing happens between batch begin and batch end
         batch.begin();
-        batch.draw(toby, 10, 10);
-        batch.draw(leia, 10, 10);
+        batch.draw(toby, 330, 0);
+        batch.draw(leia, 0, 0);
         batch.end();
 
 	}

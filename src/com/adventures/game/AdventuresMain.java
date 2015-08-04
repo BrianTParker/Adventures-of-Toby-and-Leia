@@ -11,7 +11,7 @@ public class AdventuresMain {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		 new LwjglApplication(new AdventuresGame(), "Game", 480, 320);
+		 new LwjglApplication(new AdventuresGame(), "Game", 800, 400);
 	}
 
 }
