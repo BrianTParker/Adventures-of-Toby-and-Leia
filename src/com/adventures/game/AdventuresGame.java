@@ -17,7 +17,7 @@ public class AdventuresGame implements ApplicationListener {
 	public void create() {
 		batch = new SpriteBatch();
 		toby = new PlayerObject(10, 10, "assets/toby_right.png");
-		leia = new PlayerObject(10, 10, "assets/leia.png");
+		leia = new PlayerObject(10, 10, "assets/leia_right.png");
 	}
 
 	@Override
