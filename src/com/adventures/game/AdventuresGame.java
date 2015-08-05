@@ -1,5 +1,6 @@
 package com.adventures.game;
 
+import com.adventures.objects.PlayerObject;
 import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
@@ -9,14 +10,14 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 public class AdventuresGame implements ApplicationListener {
 
 	private SpriteBatch batch;
-	private Texture toby;
-	private Texture leia;
+	private PlayerObject toby;
+	private PlayerObject leia;
 	
 	@Override
 	public void create() {
 		batch = new SpriteBatch();
-		toby = new Texture(Gdx.files.internal("assets/toby_right.png"));
-		leia = new Texture(Gdx.files.internal("assets/leia.png"));
+		toby = new PlayerObject(10, 10, "assets/toby_right.png");
+		leia = new PlayerObject(10, 10, "assets/leia.png");
 	}
 
 	@Override
@@ -38,8 +39,8 @@ public class AdventuresGame implements ApplicationListener {
 		
 		//all drawing happens between batch begin and batch end
         batch.begin();
-        batch.draw(toby, 10, 10);
-        batch.draw(leia, 10, 10);
+        batch.draw(toby.getImage(), toby.getPosition().x, toby.getPosition().y);
+        batch.draw(leia.getImage(), leia.getPosition().x, leia.getPosition().y);
         batch.end();
 
 	}
