@@ -29,6 +29,10 @@ public class AdventuresGame implements ApplicationListener {
 	private int leiaJumpCount;
 	private int leiaFallCount;
 	private ArrayList<PlayerObject> activePlayers;
+	private String tobyJumpImage = "assets/toby_right_jump.png";
+	private String tobyStandImage = "assets/toby_right.png";
+	private String leiaJumpImage = "assets/leia_right_jump.png";
+	private String leiaStandImage = "assets/leia_right.png";
 	@Override
 	public void create() {
 		batch = new SpriteBatch();
@@ -69,6 +73,26 @@ public class AdventuresGame implements ApplicationListener {
 		    	player.setVelocity(0.0f);
 		    	player.setGrounded(true);
 		    }
+		    
+		    
+		}
+		
+		if(toby.getVelocity() > 0 && !(toby.getImageString().equals(tobyJumpImage))){
+			toby.setImage(tobyJumpImage);
+		}else{
+			if(toby.getVelocity() < 0 && !(toby.getImageString().equals(tobyStandImage))){
+				toby.setImage(tobyStandImage);
+			}
+			
+		}
+		
+		if(leia.getVelocity() > 0 && !(leia.getImageString().equals(leiaJumpImage))){
+			leia.setImage(leiaJumpImage);
+		}else{
+			if(leia.getVelocity() < 0 && !(leia.getImageString().equals(leiaStandImage))){
+				leia.setImage(leiaStandImage);
+			}
+			
 		}
 		
 		

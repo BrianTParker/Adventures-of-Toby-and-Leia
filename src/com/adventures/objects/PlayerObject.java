@@ -12,11 +12,13 @@ public class PlayerObject {
 	float yVelocity;
 	float gravity = 0.5f;  
 	boolean onGround;
+	private String imageString;
 	
 	public PlayerObject(float x, float y, String imageLocation){
 		this.pos = new Point2D.Float(x, y);
 		this.image = new Texture(Gdx.files.internal(imageLocation));
 		onGround = false;
+		imageString = imageLocation;
 	}
 	
 	
@@ -55,6 +57,7 @@ public class PlayerObject {
 	public void startJump(){
 		if(onGround)
 	    {
+			
 	        this.setVelocity(12.0f);
 	        onGround = false;
 	    }
@@ -72,5 +75,19 @@ public class PlayerObject {
 			return false;
 		}
 	}
+	
+	public void setImage(String imageLocation){
+		this.image = new Texture(Gdx.files.internal(imageLocation));
+		imageString = imageLocation;
+	}
+	
+	public float getVelocity(){
+		return this.yVelocity;
+	}
+	
+	public String getImageString(){
+		return imageString;
+	}
+	
 
 }
