@@ -40,11 +40,15 @@ public class AdventuresGame extends Game implements ApplicationListener {
 	public Screen previousScreen;
 	
 	
+	//this will keep the state of the game.  Used to know what to render and whatnot
 	public enum gameState{
 		MENU, PLAY
 	}
 	
+	//I made this static so it could be accessed from other classes like the main menu
 	public static gameState state;
+	
+	
 	@Override
 	public void create() {
 		batch = new SpriteBatch();
@@ -55,8 +59,12 @@ public class AdventuresGame extends Game implements ApplicationListener {
 		activePlayers = new ArrayList();
 		activePlayers.add(toby);
 		activePlayers.add(leia);
+		
+		//initiall set the state to menu so the main game doesn't get drawn yet
 		state = gameState.MENU;
 		game = this;
+		
+		//this function is defined below.  It just changes the screen to the main menu
 		changeScreen(new MainMenu());
 		
 	}
@@ -78,7 +86,8 @@ public class AdventuresGame extends Game implements ApplicationListener {
 		super.render();
 		
 	
-
+		
+		//only render the main loop if the game state is PLAY
 		if(state == gameState.PLAY){
 			
 			//apply movement and gravity to toby and leia

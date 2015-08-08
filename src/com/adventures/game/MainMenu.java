@@ -23,7 +23,7 @@ import com.adventures.game.AdventuresGame.gameState;
 public class MainMenu implements Screen{
 
 	
-	//private Texture backgroundImage = new Texture(Gdx.files.internal("assets/main_menu.png"));
+	
 	
 	private Stage stage;
 	private Skin skin;
@@ -41,6 +41,7 @@ public class MainMenu implements Screen{
 		atlas.dispose();
 		skin.dispose();
 		background.dispose();
+		menuMusic.dispose();
 		
 		
 	}
@@ -88,12 +89,18 @@ public class MainMenu implements Screen{
 		
 	}
 
+	
+	//This method is kind of the create() of the Screen interface.  It's called first
 	@Override
 	public void show() {
 		
+		//set up the music to play on a loop
 		menuMusic = Gdx.audio.newMusic(Gdx.files.internal("assets/music/AdventuresIntro.ogg"));
 		menuMusic.setLooping(true);
 		menuMusic.play();
+		
+		
+		//set up the "stage", add the background image to the stage as an "actor"
 		stage = new Stage();
 		background = new Texture(Gdx.files.internal("assets/main_menu.png"));
 		TextureRegion region = new TextureRegion(background, 0, 0, 800, 600); 
