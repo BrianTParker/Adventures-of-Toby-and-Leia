@@ -8,6 +8,7 @@ import com.badlogic.gdx.graphics.Texture;
 public class PlayerObject {
 	
 	Point2D.Float pos;
+	
 	Texture image;
 	float yVelocity;
 	float gravity = 0.5f;  
